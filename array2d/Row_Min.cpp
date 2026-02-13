@@ -3,8 +3,8 @@ using namespace std;
 
 int main()
 {
-    int n, m, t;
-    cin >> n >> m >> t;
+    int n, m;
+    cin >> n >> m;
 
     int matrix[n][m];
 
@@ -12,31 +12,22 @@ int main()
     {
         for (int j = 0; j < m; j++) // j -> col
         {
-
             cin >> matrix[i][j];
         }
     }
 
-    bool isExist = false;
-
     for (int i = 0; i < n; i++) // i -> row
     {
+        int min = matrix[i][0];
+
         for (int j = 0; j < m; j++) // j -> col
         {
-            if (matrix[i][j] == t)
+            if (matrix[i][j] < min)
             {
-                isExist = true;
-                break;
+                min = matrix[i][j];
             }
         }
-    }
 
-    if (isExist)
-    {
-        cout << "true";
-    }
-    else
-    {
-        cout << "false";
+        cout << min << " ";
     }
 }
