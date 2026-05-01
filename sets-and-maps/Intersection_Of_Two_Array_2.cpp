@@ -22,26 +22,62 @@ int main()
         cin >> B[i];
     }
 
-    set<int> st;
-    set<int> resultSet;
+    // ---------------------
+
+    map<int, int> mp1;
+    map<int, int> mp2;
 
     while (n--)
     {
-        st.insert(A[n]);
+        if (mp1.count(A[n]))
+        {
+            mp1[A[n]]++;
+        }
+        else
+        {
+            mp1.insert({A[n], 1});
+        }
     }
 
     while (m--)
     {
-        if (st.count(B[m]))
+        if (mp2.count(B[m]))
         {
-            resultSet.insert(B[m]);
+            mp2[B[m]]++;
+        }
+        else
+        {
+            mp2.insert({B[m], 1});
         }
     }
 
-    cout << resultSet.size() << endl;
+    map<int, int> resultMap;
 
-    for (auto &s : resultSet)
+    for (auto &m : mp1)
     {
-        cout << s << " ";
+        // check element exist on both map or not
+        if (mp2.count(m.first))
+        {
+            int multipleIntersectionCount = min(mp1[m.first], mp2[m.first]);
+            resultMap.insert({m.first, multipleIntersectionCount});
+        }
+    }
+
+    int size = 0;
+
+    for (auto &m : resultMap)
+    {
+        size += m.second;
+    }
+
+    cout << size << "\n";
+
+    for (auto &m : resultMap)
+    {
+
+        while (m.second--)
+        {
+            cout << m.first << " ";
+        }
     }
 }
