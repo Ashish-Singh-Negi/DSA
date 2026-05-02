@@ -4,10 +4,10 @@ using namespace std;
 
 int main()
 {
-    int n;
+    long long n;
     cin >> n;
 
-    int count = 0;
+    long long count = 0;
 
     if (n <= 0)
     {
@@ -16,7 +16,7 @@ int main()
     }
 
     // TC : O(n)
-    // for (int i = 1; i <= n; i++)
+    // for (long long i = 1; i <= n; i++)
     // {
     //     if (n % i == 0)
     //     {
@@ -25,11 +25,11 @@ int main()
     // }
 
     // TC : sqrt(n)
-    for (int i = 1; i * i <= n; i++)
+    for (long long i = 1; i * i <= n; i++)
     {
         if (n % i == 0)
         {
-            int j = n / i;
+            long long j = n / i;
 
             if (i == j)
             {
