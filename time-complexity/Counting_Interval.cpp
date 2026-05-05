@@ -10,12 +10,12 @@ int main()
     while (Q--)
     {
 
-        int T, L, R;
+        long long T, L, R;
         cin >> T >> L >> R;
 
-        int ctn = 0;
+        long long ctn = 0;
 
-        edge case
+        // edge case
         if (L > R)
         {
             cout << ctn << endl;
